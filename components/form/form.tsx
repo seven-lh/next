@@ -19,19 +19,30 @@ function preventDefault(e) {
     e.preventDefault();
 }
 const getNewChildren = (children, props) => {
-    const { size, device, labelAlign, labelTextAlign, labelCol, wrapperCol, responsive, colon } = props;
+    const { size, device, labelAlign, labelTextAlign, labelCol, wrapperCol, responsive, colon } =
+        props;
 
     return React.Children.map(children, child => {
         if (obj.isReactFragment(child)) {
             return getNewChildren(child.props.children, props);
         }
 
-        if (child && ['function', 'object'].indexOf(typeof child.type) > -1 && child.type._typeMark === 'form_item') {
+        if (
+            child &&
+            ['function', 'object'].indexOf(typeof child.type) > -1 &&
+            child.type._typeMark === 'form_item'
+        ) {
             const childrenProps = {
                 labelCol: child.props.labelCol ? child.props.labelCol : labelCol,
                 wrapperCol: child.props.wrapperCol ? child.props.wrapperCol : wrapperCol,
-                labelAlign: child.props.labelAlign ? child.props.labelAlign : device === 'phone' ? 'top' : labelAlign,
-                labelTextAlign: child.props.labelTextAlign ? child.props.labelTextAlign : labelTextAlign,
+                labelAlign: child.props.labelAlign
+                    ? child.props.labelAlign
+                    : device === 'phone'
+                      ? 'top'
+                      : labelAlign,
+                labelTextAlign: child.props.labelTextAlign
+                    ? child.props.labelTextAlign
+                    : labelTextAlign,
                 colon: 'colon' in child.props ? child.props.colon : colon,
                 size: child.props.size ? child.props.size : size,
                 responsive: responsive,

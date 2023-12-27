@@ -279,7 +279,9 @@ export default class Item extends React.Component {
         const { _formField, _formMarginToDisplayHelp } = this.context;
 
         const useMargin =
-            typeof preferMarginToDisplayHelp !== 'undefined' ? preferMarginToDisplayHelp : _formMarginToDisplayHelp;
+            typeof preferMarginToDisplayHelp !== 'undefined'
+                ? preferMarginToDisplayHelp
+                : _formMarginToDisplayHelp;
 
         return (
             <Error
@@ -342,7 +344,9 @@ export default class Item extends React.Component {
         const newLabel = label.replace(':', '').replace('：', '');
 
         const labelForErrorMessage =
-            useLabelForErrorMessage !== undefined ? useLabelForErrorMessage : this.context._formLabelForErrorMessage;
+            useLabelForErrorMessage !== undefined
+                ? useLabelForErrorMessage
+                : this.context._formLabelForErrorMessage;
         if (labelForErrorMessage && newLabel) {
             return newLabel;
         }
@@ -403,7 +407,8 @@ export default class Item extends React.Component {
     }
 
     getItemWrapper(children) {
-        const { hasFeedback, labelCol, wrapperCol, extra, prefix, renderPreview, name } = this.props;
+        const { hasFeedback, labelCol, wrapperCol, extra, prefix, renderPreview, name } =
+            this.props;
 
         const labelAlign = this.getLabelAlign(this.props.labelAlign, this.props.device);
 
@@ -451,11 +456,16 @@ export default class Item extends React.Component {
                     !('data-meta' in child.props) &&
                     ('name' in child.props || (name && idx === 0)) //TODO：1.x 为了不BR, 2.x 中把优先级调换下，优先取 FormItem 的 name
                 ) {
-                    const initName = 'name' in child.props && child.props.name ? child.props.name : name;
+                    const initName =
+                        'name' in child.props && child.props.name ? child.props.name : name;
                     extraProps = this.context._formField.init(
                         initName,
                         {
-                            ...getFieldInitCfg(this.props, child.type.displayName, labelForErrorMessage),
+                            ...getFieldInitCfg(
+                                this.props,
+                                child.type.displayName,
+                                labelForErrorMessage
+                            ),
                             props: { ...child.props, ref: child.ref },
                         },
                         childrenProps
@@ -521,11 +531,19 @@ export default class Item extends React.Component {
         });
 
         // 垂直模式并且左对齐才用到
-        const Tag = responsive ? Cell : (wrapperCol || labelCol) && labelAlign !== 'top' ? Row : 'div';
+        const Tag = responsive
+            ? Cell
+            : (wrapperCol || labelCol) && labelAlign !== 'top'
+              ? Row
+              : 'div';
         const label = labelAlign === 'inset' ? null : this.getItemLabel(childrenNode);
 
         return (
-            <Tag {...obj.pickOthers(Item.propTypes, this.props)} className={itemClassName} style={style}>
+            <Tag
+                {...obj.pickOthers(Item.propTypes, this.props)}
+                className={itemClassName}
+                style={style}
+            >
                 {label}
                 {this.getItemWrapper(childrenNode)}
             </Tag>

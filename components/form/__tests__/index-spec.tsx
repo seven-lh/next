@@ -85,12 +85,7 @@ describe('form', () => {
 
             const wrapper = mount(<Demo />);
             wrapper.find('input#input2').simulate('change', { target: { value: '' } });
-            assert(
-                wrapper
-                    .find('.next-form-item-help')
-                    .hostNodes()
-                    .text() === 'cant be null'
-            );
+            assert(wrapper.find('.next-form-item-help').hostNodes().text() === 'cant be null');
         });
         it('should supoort Field With name on FormItem', () => {
             class Demo extends React.Component {
@@ -118,12 +113,7 @@ describe('form', () => {
 
             const wrapper = mount(<Demo />);
             wrapper.find('input#input2').simulate('change', { target: { value: '' } });
-            assert(
-                wrapper
-                    .find('.next-form-item-help')
-                    .hostNodes()
-                    .text() === 'cant be null'
-            );
+            assert(wrapper.find('.next-form-item-help').hostNodes().text() === 'cant be null');
         });
     });
     describe('Form', () => {
@@ -197,7 +187,14 @@ describe('form', () => {
         it('should supoort component with name on FormItem', () => {
             let wrapper = mount(
                 <Form component="div">
-                    <FormItem name="email" required type="email" format="email" label="email:" help="help msg">
+                    <FormItem
+                        name="email"
+                        required
+                        type="email"
+                        format="email"
+                        label="email:"
+                        help="help msg"
+                    >
                         <Input />
                     </FormItem>
                 </Form>
@@ -209,7 +206,14 @@ describe('form', () => {
             };
             wrapper = mount(
                 <Form component={Tag}>
-                    <FormItem name="email" required type="email" format="email" label="email:" help="help msg">
+                    <FormItem
+                        name="email"
+                        required
+                        type="email"
+                        format="email"
+                        label="email:"
+                        help="help msg"
+                    >
                         <Input />
                     </FormItem>
                 </Form>
@@ -253,12 +257,7 @@ describe('form', () => {
                 </Form>
             );
 
-            assert(
-                wrapper
-                    .find('.next-form-item')
-                    .first()
-                    .hasClass('has-success')
-            );
+            assert(wrapper.find('.next-form-item').first().hasClass('has-success'));
         });
 
         it('should supoort responsive', () => {

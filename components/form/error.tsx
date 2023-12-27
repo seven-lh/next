@@ -59,7 +59,9 @@ class Error extends React.Component {
             return (
                 <div className={`${prefix}form-item-help`}>
                     {children}
-                    {!!preferMarginToDisplayHelp && <div className={`${prefix}form-item-help-margin-offset`} />}
+                    {!!preferMarginToDisplayHelp && (
+                        <div className={`${prefix}form-item-help-margin-offset`} />
+                    )}
                 </div>
             );
         }
@@ -103,7 +105,9 @@ class Error extends React.Component {
         return (
             <div {...others} className={cls} style={style}>
                 {result}
-                {!!preferMarginToDisplayHelp && <div className={`${prefix}form-item-help-margin-offset`} />}
+                {!!preferMarginToDisplayHelp && (
+                    <div className={`${prefix}form-item-help-margin-offset`} />
+                )}
             </div>
         );
     }

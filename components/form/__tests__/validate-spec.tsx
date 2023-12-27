@@ -116,21 +116,11 @@ describe('Submit', () => {
 
         wrapper.find('input#first').simulate('change', { target: { value: '' } });
         wrapper.update();
-        assert(
-            wrapper
-                .find('.next-form-item-help')
-                .first()
-                .text() === 'first 是必填字段'
-        );
+        assert(wrapper.find('.next-form-item-help').first().text() === 'first 是必填字段');
 
         wrapper.find('input#second').simulate('change', { target: { value: '' } });
         wrapper.update();
-        assert(
-            wrapper
-                .find('.next-form-item-help')
-                .last()
-                .text() === 'second 是必填字段'
-        );
+        assert(wrapper.find('.next-form-item-help').last().text() === 'second 是必填字段');
 
         wrapper.find('button').simulate('click');
     });
@@ -153,12 +143,7 @@ describe('Submit', () => {
 
         wrapper.find('input#first').simulate('change', { target: { value: '1' } });
         wrapper.update();
-        assert(
-            wrapper
-                .find('.next-form-item-help')
-                .first()
-                .text() === 'min is 10'
-        );
+        assert(wrapper.find('.next-form-item-help').first().text() === 'min is 10');
         wrapper.find('button').simulate('click');
     });
 
@@ -180,12 +165,7 @@ describe('Submit', () => {
 
         wrapper.find('input#first').simulate('change', { target: { value: '1' } });
         wrapper.update();
-        assert(
-            wrapper
-                .find('.next-form-item-help')
-                .first()
-                .text() === 'min length is 10'
-        );
+        assert(wrapper.find('.next-form-item-help').first().text() === 'min length is 10');
         wrapper.find('button').simulate('click');
     });
 
@@ -210,11 +190,8 @@ describe('Submit', () => {
         const wrapper = mount(<Demo />);
         wrapper.find('input#email').simulate('change', { target: { value: '123' } });
         assert(
-            wrapper
-                .find('.next-form-item-help')
-                .at(0)
-                .hostNodes()
-                .text() === 'email 不是合法的 email 地址'
+            wrapper.find('.next-form-item-help').at(0).hostNodes().text() ===
+                'email 不是合法的 email 地址'
         );
     });
 
@@ -239,11 +216,8 @@ describe('Submit', () => {
         const wrapper = mount(<Demo />);
         wrapper.find('input#email').simulate('change', { target: { value: '123' } });
         assert(
-            wrapper
-                .find('.next-form-item-help')
-                .at(0)
-                .hostNodes()
-                .text() === 'email 不是合法的 email 地址'
+            wrapper.find('.next-form-item-help').at(0).hostNodes().text() ===
+                'email 不是合法的 email 地址'
         );
     });
 
@@ -265,12 +239,7 @@ describe('Submit', () => {
 
         wrapper.find('input#first').simulate('change', { target: { value: '' } });
         wrapper.update();
-        assert(
-            wrapper
-                .find('.next-form-item-help')
-                .first()
-                .text() === 'first 是必填字段'
-        );
+        assert(wrapper.find('.next-form-item-help').first().text() === 'first 是必填字段');
         wrapper.find('button').simulate('click');
     });
 
@@ -294,12 +263,7 @@ describe('Submit', () => {
         wrapper.update();
         assert(wrapper.find('.next-form-item-help').first().length === 0);
         wrapper.find('button').simulate('click');
-        assert(
-            wrapper
-                .find('.next-form-item-help')
-                .first()
-                .text() === 'first 是必填字段'
-        );
+        assert(wrapper.find('.next-form-item-help').first().text() === 'first 是必填字段');
     });
     it('validate useLabelForErrorMessage', () => {
         const wrapper = mount(
@@ -312,12 +276,7 @@ describe('Submit', () => {
 
         wrapper.find('input#first').simulate('change', { target: { value: '' } });
         wrapper.update();
-        assert(
-            wrapper
-                .find('.next-form-item-help')
-                .first()
-                .text() === '姓名 是必填字段'
-        );
+        assert(wrapper.find('.next-form-item-help').first().text() === '姓名 是必填字段');
     });
     it('the useLabelForErrorMessage of FormItem should have a higher priority', () => {
         const wrapper = mount(
@@ -330,12 +289,7 @@ describe('Submit', () => {
 
         wrapper.find('input#first').simulate('change', { target: { value: '' } });
         wrapper.update();
-        assert(
-            wrapper
-                .find('.next-form-item-help')
-                .first()
-                .text() === 'first 是必填字段'
-        );
+        assert(wrapper.find('.next-form-item-help').first().text() === 'first 是必填字段');
     });
     it('the useLabelForErrorMessage of FormItem should have a higher priority', () => {
         const wrapper = mount(
@@ -348,12 +302,7 @@ describe('Submit', () => {
 
         wrapper.find('input#first').simulate('change', { target: { value: '' } });
         wrapper.update();
-        assert(
-            wrapper
-                .find('.next-form-item-help')
-                .first()
-                .text() === '姓名 是必填字段'
-        );
+        assert(wrapper.find('.next-form-item-help').first().text() === '姓名 是必填字段');
     });
     it('validate errorMessageName', () => {
         const wrapper = mount(
@@ -366,12 +315,7 @@ describe('Submit', () => {
 
         wrapper.find('input#first').simulate('change', { target: { value: '' } });
         wrapper.update();
-        assert(
-            wrapper
-                .find('.next-form-item-help')
-                .first()
-                .text() === '我的姓名 是必填字段'
-        );
+        assert(wrapper.find('.next-form-item-help').first().text() === '我的姓名 是必填字段');
     });
 });
 
